@@ -94,28 +94,6 @@ public class HardwarePushbot
     }
 
 
-    /*
-    {
-        DriveForward(1);
-                DriveForwardTime(1, 4000);
-                TurnLeftTime(1, 500);
-        motorLeft.setPower(-1);
-        motorRight.setpower(1);
-        Thread.sleep(500);
-        DriveForward(1);
-        Thread.sleep(4000);
-    }
-
-
-
-
-
-
-        // Reset the cycle clock for the next pass.
-        period.reset();
-    }
-     */
-
     public void DriveForward(int i) {
         leftMotor.setPower(-1);
         rightMotor.setPower(1);
@@ -124,21 +102,10 @@ public class HardwarePushbot
         } catch (Exception e) {
             System.out.println(e);
         }
-        DriveForward(1);
-        try {
-            Thread.sleep(4000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        //turn right
+        leftMotor.setPower(0);
+        rightMotor.setPower(0);
         leftMotor.setPower(1);
         rightMotor.setPower(-1);
-        try {
-            Thread.sleep(500);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        DriveForward(1);
         try {
             Thread.sleep(500);
         } catch (Exception e) {
