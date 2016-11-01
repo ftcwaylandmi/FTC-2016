@@ -92,8 +92,6 @@ public class HardwarePushbot
             }
         }
     }
-
-
     public void DriveForward(int i) {
         leftMotor.setPower(-1);
         rightMotor.setPower(1);
