@@ -76,6 +76,16 @@ public class test1 extends OpMode{
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");    //
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(1);
+        try {
+            Thread.sleep(500);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(0);
+
     }
 
     /*
