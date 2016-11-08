@@ -76,15 +76,6 @@ public class test1 extends OpMode{
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");    //
-        robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(1);
-        try {
-            Thread.sleep(500);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(0);
 
     }
 
@@ -110,12 +101,59 @@ public class test1 extends OpMode{
         double left;
         double right;
 
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(-1);
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(0);
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(0);
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(0);
+        try {
+            Thread.sleep(500);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(0);
+        robot.leftMotor.setPower(1);
+        try {
+            Thread.sleep(500);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        robot.leftMotor.setPower(0);
+
+
+/*
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
         robot.leftMotor.setPower(left);
         robot.rightMotor.setPower(right);
-
+*/
         // Use gamepad left & right Bumpers to open and close the claw
         if (gamepad1.right_bumper)
             clawOffset += CLAW_SPEED;
@@ -137,8 +175,8 @@ public class test1 extends OpMode{
 
         // Send telemetry message to signify robot running;
         telemetry.addData("claw",  "Offset = %.2f", clawOffset);
-        telemetry.addData("left",  "%.2f", left);
-        telemetry.addData("right", "%.2f", right);
+        //telemetry.addData("left",  "%.2f", left);
+        //telemetry.addData("right", "%.2f", right);
     }
 
     /*

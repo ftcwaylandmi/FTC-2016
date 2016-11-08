@@ -116,14 +116,9 @@ public class HardwarePushbot
         //armMotor.setPosition(.2);
 
     }
-    while (opModeIsActive())
-    {
-        leftMotor.setPower(gamepad1.left_stick_y);
-        rightMotor.setPower(gamepad1(right_stick_y);
-    }
 
 
-    }
+
     /*
 @Disabled
     //Thread.sleep(4000);
