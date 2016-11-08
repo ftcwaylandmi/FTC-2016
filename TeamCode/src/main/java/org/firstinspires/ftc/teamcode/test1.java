@@ -104,21 +104,14 @@ public class test1 extends OpMode{
         robot.leftMotor.setPower(-1);
         robot.rightMotor.setPower(-1);
         try {
-            Thread.sleep(5000);
+            Thread.sleep(4000);
         } catch (Exception e) {
             System.out.println(e);
         }
         robot.leftMotor.setPower(0);
         //robot.rightMotor.setPower(0);
         try {
-            Thread.sleep(1500);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(-1);
-        try {
-            Thread.sleep(5000);
+            Thread.sleep(750);
         } catch (Exception e) {
             System.out.println(e);
         }
