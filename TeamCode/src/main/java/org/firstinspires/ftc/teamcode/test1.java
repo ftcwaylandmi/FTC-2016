@@ -102,56 +102,63 @@ public class test1 extends OpMode{
         double right;
 
         robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(-1);
+        robot.rightMotor.setPower(0);
         try {
             Thread.sleep(4000);
         } catch (Exception e) {
             System.out.println(e);
         }
-        robot.leftMotor.setPower(0);
-        //robot.rightMotor.setPower(0);
+        robot.leftMotor.setPower(0);  //FIXME need to swap motors.
+        robot.rightMotor.setPower(0);
         try {
-            Thread.sleep(750);
+            Thread.sleep(950);
         } catch (Exception e) {
             System.out.println(e);
         }
         robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(-1);
+        try {
+        Thread.sleep(2000);
+        }  catch (Exception e) {
+            System.out.println(e);
+        }
+       try {
+        Thread.sleep(4000);
+    } catch (Exception e) {
+           System.out.println(e);
+       }
+        robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(0);
-
-
-
-/*
-        // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        left = -gamepad1.left_stick_y;
-        right = -gamepad1.right_stick_y;
-        robot.leftMotor.setPower(left);
-        robot.rightMotor.setPower(right);
-*/
-        // Use gamepad left & right Bumpers to open and close the claw
-        if (gamepad1.right_bumper)
-            clawOffset += CLAW_SPEED;
-        else if (gamepad1.left_bumper)
-            clawOffset -= CLAW_SPEED;
-
-        // Move both servos to new position.  Assume servos are mirror image of each other.
-        clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-        robot.leftClaw.setPosition(HardwarePushbot.MID_SERVO + clawOffset);
-        robot.rightClaw.setPosition(HardwarePushbot.MID_SERVO - clawOffset);
-
-        // Use gamepad buttons to move the arm up (Y) and down (A)
-        if (gamepad1.y)
-            robot.armMotor.setPower(HardwarePushbot.ARM_UP_POWER);
-        else if (gamepad1.a)
-            robot.armMotor.setPower(HardwarePushbot.ARM_DOWN_POWER);
-        else
-            robot.armMotor.setPower(0.0);
-
-        // Send telemetry message to signify robot running;
-        telemetry.addData("claw",  "Offset = %.2f", clawOffset);
-        //telemetry.addData("left",  "%.2f", left);
-        //telemetry.addData("right", "%.2f", right);
+        try {
+            Thread.sleep(4000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        try {
+            Thread.sleep(4000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(0);
+        try {
+            Thread.sleep(950);
+        } catch (Exception e) {
+            System.out.println(e);
     }
 
+    }
+
+
+    public void DriveForward( int drivetime) {
+        robot.leftMotor.setPower(-1); //FIXME reverse polarity on motors
+        robot.rightMotor.setPower(-1);
+        try {
+            Thread.sleep(drivetime);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     /*
      * Code to run ONCE after the driver hits STOP
      */
