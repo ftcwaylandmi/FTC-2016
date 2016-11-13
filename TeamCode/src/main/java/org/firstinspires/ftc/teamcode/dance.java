@@ -62,8 +62,8 @@ public class dance extends OpMode{
                                                          // could also use HardwarePushbotMatrix class.
     double          clawOffset  = 0.0 ;                  // Servo mid position
     final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
-    float           forwardPower = -1;
-    float           reversePower = 1;
+    float           forwardPower = 1;
+    float           reversePower = -1;
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -130,14 +130,14 @@ public class dance extends OpMode{
 
 
     public void SpinLeft(int drivetime) {
-        robot.leftMotor.setPower(reversePower);
-        robot.rightMotor.setPower(forwardPower);
+        robot.rightMotor.setPower(reversePower);
+        robot.leftMotor.setPower(forwardPower);
         Sleeper(drivetime);
     }
 
     public void SpinRight(int drivetime) {
-        robot.leftMotor.setPower(forwardPower);
-        robot.rightMotor.setPower(reversePower);
+        robot.rightMotor.setPower(forwardPower);
+        robot.leftMotor.setPower(reversePower);
         Sleeper(drivetime);
     }
 
@@ -150,15 +150,13 @@ public class dance extends OpMode{
     }
 
     public void SweepTurnRight(int drivetime) {
-        //FIXME reversed due to motors being mislabeled.
-        robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(forwardPower);
+        robot.rightMotor.setPower(0);
+        robot.leftMotor.setPower(forwardPower);
     }
 
     public void SweepTurnLeft(int drivetime) {
-        //FIXME reversed due to motors being mislabeled.
-        robot.leftMotor.setPower(forwardPower);
-        robot.rightMotor.setPower(0);
+        robot.rightMotor.setPower(forwardPower);
+        robot.leftMotor.setPower(0);
         Sleeper(drivetime);
     }
 
@@ -187,7 +185,7 @@ public class dance extends OpMode{
 
     public void DriveForward(int drivetime) {
         robot.leftMotor.setPower(forwardPower);
-        robot.rightMotor.setPower(fowardPower);
+        robot.rightMotor.setPower(forwardPower);
         Sleeper(drivetime);
     }
     /*

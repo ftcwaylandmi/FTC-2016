@@ -102,13 +102,13 @@ public class test1 extends OpMode{
         double right;
 
         robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(0);
+        robot.rightMotor.setPower(-1);
         try {
             Thread.sleep(4000);
         } catch (Exception e) {
             System.out.println(e);
         }
-        robot.leftMotor.setPower(0);  //FIXME need to swap motors.
+        robot.leftMotor.setPower(-1);  //FIXME need to swap motors.
         robot.rightMotor.setPower(0);
         try {
             Thread.sleep(950);
@@ -116,7 +116,7 @@ public class test1 extends OpMode{
             System.out.println(e);
         }
         robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(-1);
+        robot.rightMotor.setPower(0.5);
         try {
         Thread.sleep(2000);
         }  catch (Exception e) {
@@ -139,20 +139,26 @@ public class test1 extends OpMode{
         } catch (Exception e) {
             System.out.println(e);
         }
-        robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(0);
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
         try {
             Thread.sleep(950);
         } catch (Exception e) {
             System.out.println(e);
     }
-
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        robot.rightMotor.setPower(0);
+        robot.leftMotor.setPower(0);
     }
 
 
     public void DriveForward( int drivetime) {
-        robot.leftMotor.setPower(-1); //FIXME reverse polarity on motors
-        robot.rightMotor.setPower(-1);
+        robot.leftMotor.setPower(0); //FIXME reverse polarity on motors
+        robot.rightMotor.setPower(0);
         try {
             Thread.sleep(drivetime);
         } catch (Exception e) {
