@@ -101,14 +101,14 @@ public class test1 extends OpMode{
         double left;
         double right;
 
-        robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(-1);
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
         try {
             Thread.sleep(4000);
         } catch (Exception e) {
             System.out.println(e);
         }
-        robot.leftMotor.setPower(-1);  //FIXME need to swap motors.
+        robot.leftMotor.setPower(1);
         robot.rightMotor.setPower(0);
         try {
             Thread.sleep(950);
@@ -116,7 +116,7 @@ public class test1 extends OpMode{
             System.out.println(e);
         }
         robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(0.5);
+        robot.rightMotor.setPower(-0.5);
         try {
         Thread.sleep(2000);
         }  catch (Exception e) {
@@ -139,8 +139,8 @@ public class test1 extends OpMode{
         } catch (Exception e) {
             System.out.println(e);
         }
-        robot.leftMotor.setPower(1);
-        robot.rightMotor.setPower(1);
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(-1);
         try {
             Thread.sleep(950);
         } catch (Exception e) {
