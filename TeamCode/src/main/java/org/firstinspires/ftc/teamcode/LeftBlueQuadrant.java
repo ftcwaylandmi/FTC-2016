@@ -102,7 +102,7 @@ public class LeftBlueQuadrant extends OpMode{
         double right;
 
         try {
-            Thread.sleep(4000);
+            Thread.sleep(3500);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -123,23 +123,10 @@ public class LeftBlueQuadrant extends OpMode{
         robot.leftMotor.setPower(1);
         robot.rightMotor.setPower(1);
 
-       try {
-        Thread.sleep(4000);
-    } catch (Exception e) {
-           System.out.println(e);
-       }
+       Sleeper(4000);
         robot.rightMotor.setPower(1);
-        try {robot.leftMotor.setPower(1);
-
-            Thread.sleep(4000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        try {
-            Thread.sleep(4000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        robot.leftMotor.setPower(1);
+        Sleeper(4000);
         robot.leftMotor.setPower(-1);
         robot.rightMotor.setPower(-1);
         Sleeper(950);
