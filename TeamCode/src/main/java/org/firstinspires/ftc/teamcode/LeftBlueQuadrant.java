@@ -53,9 +53,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this +opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Pushbot: Test1", group="Pushbot")
+@TeleOp(name="Pushbot: left blue quadrant", group="Pushbot")
 //@Disabled
-public class test1 extends OpMode{
+public class LeftBlueQuadrant extends OpMode{
 
     /* Declare OpMode members. */
     HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
@@ -101,35 +101,36 @@ public class test1 extends OpMode{
         double left;
         double right;
 
-        robot.leftMotor.setPower(1);
-        robot.rightMotor.setPower(1);
         try {
             Thread.sleep(4000);
         } catch (Exception e) {
             System.out.println(e);
         }
-        robot.leftMotor.setPower(1);
-        robot.rightMotor.setPower(0);
+            robot.leftMotor.setPower(1);
+            robot.rightMotor.setPower(1);
         try {
-            Thread.sleep(950);
+            Thread.sleep(4000);
         } catch (Exception e) {
             System.out.println(e);
         }
         robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(-0.5);
+        robot.rightMotor.setPower(0.5);
         try {
-        Thread.sleep(2000);
-        }  catch (Exception e) {
+            Thread.sleep(1000);
+        } catch (Exception e) {
             System.out.println(e);
         }
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
+
        try {
         Thread.sleep(4000);
     } catch (Exception e) {
            System.out.println(e);
        }
-        robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(0);
-        try {
+        robot.rightMotor.setPower(1);
+        try {robot.leftMotor.setPower(1);
+
             Thread.sleep(4000);
         } catch (Exception e) {
             System.out.println(e);
@@ -141,19 +142,22 @@ public class test1 extends OpMode{
         }
         robot.leftMotor.setPower(-1);
         robot.rightMotor.setPower(-1);
-        try {
-            Thread.sleep(950);
-        } catch (Exception e) {
-            System.out.println(e);
-    }
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        Sleeper(950);
+        Sleeper(1000);
         robot.rightMotor.setPower(0);
         robot.leftMotor.setPower(0);
     }
+
+
+    public void Sleeper(int sleeptime) {
+        try {
+            Thread.sleep(sleeptime);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 
 
     public void DriveForward( int drivetime) {

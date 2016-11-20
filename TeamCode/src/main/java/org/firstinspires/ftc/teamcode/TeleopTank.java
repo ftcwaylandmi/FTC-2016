@@ -55,7 +55,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 @TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
 //@Disabled
-public class PushbotTeleopTank_Iterative extends OpMode{
+public class TeleopTank extends OpMode{
 
     /* Declare OpMode members. */
     org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
@@ -107,9 +107,9 @@ public class PushbotTeleopTank_Iterative extends OpMode{
         robot.rightMotor.setPower(right);
 
         // Use gamepad left & right Bumpers to open and close the claw
-        if (gamepad1.right_bumper)
+        if (gamepad2.right_bumper)
             clawOffset += CLAW_SPEED;
-        else if (gamepad1.left_bumper)
+        else if (gamepad2.left_bumper)
             clawOffset -= CLAW_SPEED;
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
@@ -118,9 +118,9 @@ public class PushbotTeleopTank_Iterative extends OpMode{
         robot.rightClaw.setPosition(HardwarePushbot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
-        if (gamepad1.y)
+        if (gamepad2.a)
             robot.armMotor.setPower(HardwarePushbot.ARM_UP_POWER);
-        else if (gamepad1.a)
+        else if (gamepad2.y)
             robot.armMotor.setPower(HardwarePushbot.ARM_DOWN_POWER);
         else
             robot.armMotor.setPower(0.0);
