@@ -41,27 +41,27 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 /**
  * This file provides basic Telop driving for a Pushbot robot.
  * The code is structured as an Iterative OpMode
- *
+ * <p>
  * This OpMode uses the common Pushbot hardware class to define the devices on the robot.
  * All device access is managed through the HardwarePushbot class.
- *
+ * <p>
  * This particular OpMode executes a basic Tank Drive Teleop for a PushBot
  * It raises and lowers the claw using the Gampad Y and A buttons respectively.
  * It also opens and closes the claws slowly using the left and right Bumper buttons.
- *
+ * <p>
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this +opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Pushbot: left blue quadrant", group="Pushbot")
+@TeleOp(name = "Pushbot: left blue quadrant", group = "Pushbot")
 //@Disabled
-public class LeftBlueQuadrant extends OpMode{
+public class LeftBlueQuadrant extends OpMode {
 
     /* Declare OpMode members. */
-    HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-                                                         // could also use HardwarePushbotMatrix class.
-    double          clawOffset  = 0.0 ;                  // Servo mid position
-    final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
+    HardwarePushbot robot = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
+    // could also use HardwarePushbotMatrix class.
+    double clawOffset = 0.0;                  // Servo mid position
+    final double CLAW_SPEED = 0.02;                 // sets rate to move servo
 
 
     /*
@@ -101,38 +101,19 @@ public class LeftBlueQuadrant extends OpMode{
         double left;
         double right;
 
-        try {
-            Thread.sleep(3500);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-            robot.leftMotor.setPower(1);
-            robot.rightMotor.setPower(1);
-        try {
-            Thread.sleep(4000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+
+        DriveForward(2500);
         robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(0.5);
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        robot.leftMotor.setPower(1);
+        Sleeper(500);
+
+        DriveForward(2500);
+        robot.leftMotor.setPower(-1);
         robot.rightMotor.setPower(1);
 
-       Sleeper(4000);
-        robot.rightMotor.setPower(1);
-        robot.leftMotor.setPower(1);
-        Sleeper(4000);
-        robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(-1);
-        Sleeper(950);
-        Sleeper(1000);
-        robot.rightMotor.setPower(0);
-        robot.leftMotor.setPower(0);
+        Sleeper(2500);
+        DriveForward(2500);
+        DriveStop();
     }
 
 
@@ -146,16 +127,17 @@ public class LeftBlueQuadrant extends OpMode{
     }
 
 
-
-    public void DriveForward( int drivetime) {
-        robot.leftMotor.setPower(0); //FIXME reverse polarity on motors
-        robot.rightMotor.setPower(0);
-        try {
-            Thread.sleep(drivetime);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void DriveForward(int drivetime) {
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
+        Sleeper(drivetime);
     }
+
+    public void DriveStop() {
+        robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(0);
+    }
+
     /*
      * Code to run ONCE after the driver hits STOP
      */

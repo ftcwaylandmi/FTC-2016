@@ -41,27 +41,27 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 /**
  * This file provides basic Telop driving for a Pushbot robot.
  * The code is structured as an Iterative OpMode
- *
+ * <p>
  * This OpMode uses the common Pushbot hardware class to define the devices on the robot.
  * All device access is managed through the HardwarePushbot class.
- *
+ * <p>
  * This particular OpMode executes a basic Tank Drive Teleop for a PushBot
  * It raises and lowers the claw using the Gampad Y and A buttons respectively.
  * It also opens and closes the claws slowly using the left and right Bumper buttons.
- *
+ * <p>
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this +opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
+@TeleOp(name = "Pushbot: RightBlueQuadrant", group = "Pushbot")
 //@Disabled
-public class TeleopTank extends OpMode{
+public class RightBlueQuadrant extends OpMode {
 
     /* Declare OpMode members. */
-    org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-                                                         // could also use HardwarePushbotMatrix class.
-    double          clawOffset  = 0.0 ;                  // Servo mid position
-    final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
+    HardwarePushbot robot = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
+    // could also use HardwarePushbotMatrix class.
+    double clawOffset = 0.0;                  // Servo mid position
+    final double CLAW_SPEED = 0.02;                 // sets rate to move servo
 
 
     /*
@@ -76,6 +76,7 @@ public class TeleopTank extends OpMode{
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");    //
+
     }
 
     /*
@@ -100,35 +101,59 @@ public class TeleopTank extends OpMode{
         double left;
         double right;
 
-        // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        left = -gamepad1.left_stick_y;
-        right = -gamepad1.right_stick_y;
-        robot.leftMotor.setPower(left);
-        robot.rightMotor.setPower(right);
+            Sleeper(1500);
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
 
-        // Use gamepad left & right Bumpers to open and close the claw
-        if (gamepad2.right_bumper)
-            clawOffset += CLAW_SPEED;
-        else if (gamepad2.left_bumper)
-            clawOffset -= CLAW_SPEED;
+            Sleeper(250);
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(1);
 
-        // Move both servos to new position.  Assume servos are mirror image of each other.
-        clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-        //robot.leftClaw.setPosition(HardwarePushbot.MID_SERVO + clawOffset);
-        //robot.rightClaw.setPosition(HardwarePushbot.MID_SERVO - clawOffset);
+                    Sleeper(4000);
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
 
-        // Use gamepad buttons to move the arm up (Y) and down (A)
-        if (gamepad2.a)
-            robot.armMotor.setPower(HardwarePushbot.ARM_UP_POWER);
-        else if (gamepad2.y)
-            robot.armMotor.setPower(HardwarePushbot.ARM_DOWN_POWER);
-        else
-            robot.armMotor.setPower(0.0);
+            Sleeper(250);
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(1);
 
-        // Send telemetry message to signify robot running;
-        telemetry.addData("claw",  "Offset = %.2f", clawOffset);
-        telemetry.addData("left",  "%.2f", left);
-        telemetry.addData("right", "%.2f", right);
+            Sleeper(400);
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
+
+            Sleeper(500);
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(-1);
+
+
+            Sleeper(500);
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(1);
+
+            Sleeper(4000);
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
+    }
+
+
+    public void Sleeper(int sleeptime) {
+        try {
+            Thread.sleep(sleeptime);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+
+    public void DriveForward(int drivetime) {
+        robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(0);
+        try {
+            Thread.sleep(drivetime);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     /*
