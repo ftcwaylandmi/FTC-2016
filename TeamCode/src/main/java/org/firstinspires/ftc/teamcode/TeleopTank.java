@@ -118,9 +118,9 @@ public class TeleopTank extends OpMode{
         //robot.rightClaw.setPosition(HardwarePushbot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
-        if (gamepad2.a)
+        if (gamepad2.a || gamepad1.a)
             robot.armMotor.setPower(HardwarePushbot.ARM_UP_POWER);
-        else if (gamepad2.y)
+        else if (gamepad2.y || gamepad1.y)
             robot.armMotor.setPower(HardwarePushbot.ARM_DOWN_POWER);
         else
             robot.armMotor.setPower(0.0);
