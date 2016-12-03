@@ -32,6 +32,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
@@ -52,7 +53,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this +opmode to the Driver Station OpMode list
  */
-
+//@Autonomous(name = "Pushbot: right blue quadrant", group = "Pushbot")
 @TeleOp(name = "Pushbot: right blue quadrant", group = "Pushbot")
 //@Disabled
 public class RightBlueQuadrant extends OpMode {
@@ -75,7 +76,7 @@ public class RightBlueQuadrant extends OpMode {
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Driver");    //
+        telemetry.addData("Say", "Right Blue quad");    //
 
     }
 
@@ -91,6 +92,45 @@ public class RightBlueQuadrant extends OpMode {
      */
     @Override
     public void start() {
+        double left;
+        double right;
+
+        DriveForward(1000);
+        DriveForward(1000);
+        DriveForward(1000);
+        telemetry.addData("Say", "Turn Left");
+        robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(0.5);
+        Sleeper(500);
+
+        DriveForward(1000);
+        DriveForward(1000);
+        DriveForward(1000);
+        telemetry.addData("Say", "Spin Right");
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(-1);
+        Sleeper(1000);
+
+        telemetry.addData("Say", "Driving Reverse");
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(-1);
+        Sleeper(750);
+
+        DriveForward(1000);
+        DriveForward(250);
+        telemetry.addData("Say", "Turning Right");
+        robot.leftMotor.setPower(0.5);
+        robot.rightMotor.setPower(0);
+        Sleeper(500);
+
+        DriveForward(1000);
+        DriveForward(1000);
+        DriveForward(1000);
+        DriveForward(1000);
+        DriveForward(500);
+
+        DriveStop();
+
     }
 
     /*
@@ -98,38 +138,10 @@ public class RightBlueQuadrant extends OpMode {
      */
     @Override
     public void loop() {
-        double left;
-        double right;
-
-
-        DriveForward(3000);
-        robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(0.5);
-
-        Sleeper(500);
-        robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(1);
-
-        DriveForward(2000);
-
-        robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(-1);
-        Sleeper(500);
-
-        DriveForward(1500);
-        robot.leftMotor.setPower(0.5);
-        robot.rightMotor.setPower(0);
-        Sleeper(500);
-
-        robot.leftMotor.setPower(1);
-        robot.rightMotor.setPower(1);
-        Sleeper(4500);
-
-        DriveStop();
     }
 
 
-    public void Sleeper(int sleeptime) {
+    private void Sleeper(int sleeptime) {
         try {
             Thread.sleep(sleeptime);
 
@@ -139,13 +151,16 @@ public class RightBlueQuadrant extends OpMode {
     }
 
 
-    public void DriveForward(int drivetime) {
+    private void DriveForward(int drivetime) {
+        telemetry.clearAll();
+        telemetry.addData("Say", "Driving Forward");
+        updateTelemetry(telemetry);
         robot.leftMotor.setPower(1);
         robot.rightMotor.setPower(1);
         Sleeper(drivetime);
     }
 
-    public void DriveStop() {
+    private void DriveStop() {
         robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(0);
     }
@@ -155,6 +170,7 @@ public class RightBlueQuadrant extends OpMode {
      */
     @Override
     public void stop() {
+        DriveStop();
     }
 
 }

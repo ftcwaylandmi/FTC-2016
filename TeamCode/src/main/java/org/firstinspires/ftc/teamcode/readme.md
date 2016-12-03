@@ -100,7 +100,7 @@ These changes are performed OUTSIDE of Android Studios, so close Android Studios
 Also.. Make a full project backup before you start this :)
 
 To clone TeamCode, do the following:
-
+4
 Note: Some names start with "Team" and others start with "team".  This is intentional.
 
 1)  Using your operating system file management tools, copy the whole "TeamCode"

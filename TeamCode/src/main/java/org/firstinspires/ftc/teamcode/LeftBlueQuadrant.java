@@ -91,13 +91,6 @@ public class LeftBlueQuadrant extends OpMode {
      */
     @Override
     public void start() {
-    }
-
-    /*
-     * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
-     */
-    @Override
-    public void loop() {
         double left;
         double right;
 
@@ -126,10 +119,19 @@ public class LeftBlueQuadrant extends OpMode {
         Sleeper(4500);
 
         DriveStop();
+
     }
 
 
-    public void Sleeper(int sleeptime) {
+    /*
+     * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
+     */
+    @Override
+    public void loop() {
+    }
+
+
+    private void Sleeper(int sleeptime) {
         try {
             Thread.sleep(sleeptime);
 
@@ -139,13 +141,13 @@ public class LeftBlueQuadrant extends OpMode {
     }
 
 
-    public void DriveForward(int drivetime) {
+    private void DriveForward(int drivetime) {
         robot.leftMotor.setPower(1);
         robot.rightMotor.setPower(1);
         Sleeper(drivetime);
     }
 
-    public void DriveStop() {
+    private void DriveStop() {
         robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(0);
     }
@@ -155,6 +157,7 @@ public class LeftBlueQuadrant extends OpMode {
      */
     @Override
     public void stop() {
+        DriveStop();
     }
 
 }
