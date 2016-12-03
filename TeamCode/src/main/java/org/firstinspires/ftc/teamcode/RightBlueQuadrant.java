@@ -53,7 +53,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this +opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name = "Pushbot: RightBlueQuadrant", group = "Pushbot")
+@TeleOp(name = "Pushbot: right blue quadrant", group = "Pushbot")
 //@Disabled
 public class RightBlueQuadrant extends OpMode {
 
@@ -75,7 +75,7 @@ public class RightBlueQuadrant extends OpMode {
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Starting Right Blue Q");    //
+        telemetry.addData("Say", "Hello Driver");    //
 
     }
 
@@ -101,29 +101,31 @@ public class RightBlueQuadrant extends OpMode {
         double left;
         double right;
 
-        DriveForward(1500);
-        DriveStop();
-        robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(1);
-        Sleeper(500);
 
-        DriveForward(6000);
+        DriveForward(3000);
         robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(-0.5);
+        robot.rightMotor.setPower(0.5);
+
         Sleeper(500);
-        DriveStop();
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(1);
+
+        DriveForward(2000);
+
         robot.leftMotor.setPower(-1);
         robot.rightMotor.setPower(-1);
-        Sleeper(300);
+        Sleeper(500);
 
-        DriveForward(500);
-        DriveStop();
+        DriveForward(1500);
+        robot.leftMotor.setPower(0.5);
+        robot.rightMotor.setPower(0);
+        Sleeper(500);
+
         robot.leftMotor.setPower(1);
-        robot.rightMotor.setPower(-1);
-        Sleeper(1000);
+        robot.rightMotor.setPower(1);
+        Sleeper(4500);
 
-        DriveForward(6000);
-      DriveStop();
+        DriveStop();
     }
 
 
@@ -138,18 +140,16 @@ public class RightBlueQuadrant extends OpMode {
 
 
     public void DriveForward(int drivetime) {
-        robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(0);
-        try {
-            Thread.sleep(drivetime);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
+        Sleeper(drivetime);
     }
+
     public void DriveStop() {
         robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(0);
     }
+
     /*
      * Code to run ONCE after the driver hits STOP
      */
