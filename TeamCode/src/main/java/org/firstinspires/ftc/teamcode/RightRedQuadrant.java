@@ -53,7 +53,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this +opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name = "Pushbot: RightBlueQuadrant", group = "Pushbot")
+@TeleOp(name = "Pushbot: RightRedQuadrant", group = "Pushbot")
 //@Disabled
 public class RightRedQuadrant extends OpMode {
 
@@ -105,34 +105,38 @@ public class RightRedQuadrant extends OpMode {
         robot.leftMotor.setPower(1);
         robot.rightMotor.setPower(1);
 
-        Sleeper(500);
+        Sleeper(1500);
         robot.leftMotor.setPower(1);
         robot.rightMotor.setPower(-1);
+        Sleeper(500);
 
-        Sleeper(6000);
         robot.leftMotor.setPower(1);
         robot.rightMotor.setPower(1);
+        Sleeper(6000);
 
-        Sleeper(500);
         robot.leftMotor.setPower(-0.5);
         robot.rightMotor.setPower(0);
-
         Sleeper(500);
+
         robot.leftMotor.setPower(-0.5);
         robot.rightMotor.setPower(-0.5);
-
         Sleeper(500);
+
         robot.leftMotor.setPower(1);
         robot.rightMotor.setPower(1);
-
+        Sleeper(500);
 
         Sleeper(1000);
         robot.leftMotor.setPower(-1);
         robot.rightMotor.setPower(1);
 
-        Sleeper(6000);
+        Sleeper(500);
         robot.leftMotor.setPower(1);
         robot.rightMotor.setPower(1);
+        Sleeper(6000);
+
+        robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(0);
     }
 
 

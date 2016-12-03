@@ -75,7 +75,7 @@ public class RightBlueQuadrant extends OpMode {
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Driver");    //
+        telemetry.addData("Say", "Starting Right Blue Q");    //
 
     }
 
@@ -101,38 +101,29 @@ public class RightBlueQuadrant extends OpMode {
         double left;
         double right;
 
-            Sleeper(1500);
-        robot.leftMotor.setPower(1);
+        DriveForward(1500);
+        DriveStop();
+        robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(1);
+        Sleeper(500);
 
-            Sleeper(250);
-        robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(1);
-
-                    Sleeper(4000);
-        robot.leftMotor.setPower(1);
-        robot.rightMotor.setPower(1);
-
-            Sleeper(250);
-        robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(1);
-
-            Sleeper(400);
-        robot.leftMotor.setPower(1);
-        robot.rightMotor.setPower(1);
-
-            Sleeper(500);
+        DriveForward(6000);
+        robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(-0.5);
+        Sleeper(500);
+        DriveStop();
         robot.leftMotor.setPower(-1);
         robot.rightMotor.setPower(-1);
+        Sleeper(300);
 
-
-            Sleeper(500);
-        robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(1);
-
-            Sleeper(4000);
+        DriveForward(500);
+        DriveStop();
         robot.leftMotor.setPower(1);
-        robot.rightMotor.setPower(1);
+        robot.rightMotor.setPower(-1);
+        Sleeper(1000);
+
+        DriveForward(6000);
+      DriveStop();
     }
 
 
@@ -155,7 +146,10 @@ public class RightBlueQuadrant extends OpMode {
             System.out.println(e);
         }
     }
-
+    public void DriveStop() {
+        robot.leftMotor.setPower(0);
+        robot.rightMotor.setPower(0);
+    }
     /*
      * Code to run ONCE after the driver hits STOP
      */

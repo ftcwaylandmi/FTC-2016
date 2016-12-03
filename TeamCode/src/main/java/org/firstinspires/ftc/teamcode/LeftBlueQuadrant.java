@@ -105,15 +105,25 @@ public class LeftBlueQuadrant extends OpMode {
         DriveForward(2500);
         robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(0.5);
+
         Sleeper(500);
+        robot.leftMotor.setPower(-1);
+        robot.rightMotor.setPower(1);
 
         DriveForward(2500);
 
         robot.leftMotor.setPower(-1);
-        robot.rightMotor.setPower(1);
-        Sleeper(2500);
+        robot.rightMotor.setPower(-1);
+        Sleeper(500);
 
-        DriveForward(2500);
+        DriveForward(1500);
+        robot.leftMotor.setPower(0.5);
+        robot.rightMotor.setPower(0);
+        Sleeper(500);
+
+        robot.leftMotor.setPower(1);
+        robot.rightMotor.setPower(1);
+        Sleeper(4500);
 
         DriveStop();
     }
